@@ -1,0 +1,119 @@
+{
+  "name": "vsfiglet",
+  "publisher": "srilakshmikanthanp",
+  "displayName": "vsfiglet",
+  "description": "Figlet inside vscode!",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.59.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "*"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "vsfiglet.setfont",
+        "title": "VsFiglet : Set Font to use in workspace"
+      },
+      {
+        "command": "vsfiglet.convert",
+        "title": "VsFiglet : Convert to FIGure"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "vsfiglet.convert",
+          "group": "1_modification",
+          "when": "editorHasSelection"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "VsFiglet",
+      "properties": {
+        "vsfiglet.font": {
+          "type": "string",
+          "description": "Font to use",
+          "default": "standard"
+        },
+        "vsfiglet.horizontalLayout": {
+          "type": "string",
+          "description": "Horizontal Layout to Use",
+          "default": "default",
+          "enum": [
+            "default",
+            "fitted",
+            "full",
+            "controlled smushing",
+            "universal smushing"
+          ],
+          "enumDescriptions": [
+            "Default does the kerning the way the font designer intended",
+            "Fitted moves the letters together until they almost touch",
+            "Full uses full letter spacing",
+            "Controlled smushing is common FIGlet kerning setups",
+            "Universal smushing is common FIGlet kerning setups"
+          ]
+        },
+        "vsfiglet.verticalLayout": {
+          "type": "string",
+          "description": "Vertical Layout to Use",
+          "default": "default",
+          "enum": [
+            "default",
+            "fitted",
+            "full",
+            "controlled smushing",
+            "universal smushing"
+          ],
+          "enumDescriptions": [
+            "Default does the kerning the way the font designer intended",
+            "Fitted moves the letters together until they almost touch",
+            "Full uses full letter spacing",
+            "Controlled smushing is common FIGlet kerning setups",
+            "Universal smushing is common FIGlet kerning setups"
+          ]
+        },
+        "vsfiglet.width": {
+          "type": "number",
+          "description": "This option allows you to limit the width of the output.",
+          "default": 80
+        },
+        "vsfiglet.whitespaceBreak": {
+          "type": "boolean",
+          "description": "vsfiglet will attempt to break text up on whitespace when limiting the width when true",
+          "default": false
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/figlet": "^1.5.4",
+    "@types/glob": "^7.1.3",
+    "@types/mocha": "^8.2.2",
+    "@types/node": "14.x",
+    "@types/vscode": "^1.59.0",
+    "@typescript-eslint/eslint-plugin": "^4.26.0",
+    "@typescript-eslint/parser": "^4.26.0",
+    "eslint": "^7.27.0",
+    "figlet": "^1.5.2",
+    "glob": "^7.1.7",
+    "mocha": "^8.4.0",
+    "typescript": "^4.3.2",
+    "vscode-test": "^1.5.2"
+  }
+}
