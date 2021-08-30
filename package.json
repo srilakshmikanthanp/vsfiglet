@@ -4,6 +4,7 @@
   "displayName": "vsfiglet",
   "description": "Figlet inside vscode!",
   "version": "0.0.1",
+  "logo": "images/logo.png",
   "engines": {
     "vscode": "^1.59.0"
   },
