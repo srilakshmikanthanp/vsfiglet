@@ -1,7 +1,7 @@
 .vscode/**
 .vscode-test/**
 out/test/**
-
+node_modules/figlet/importable-fonts
 src/**
 .gitignore
 .yarnrc
