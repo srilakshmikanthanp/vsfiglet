@@ -14,7 +14,7 @@ class VsFiglet {
   /**
    * get the selected text
    */
-  public static getSelectedText(): string | undefined {
+  private static getSelectedText(): string | undefined {
     var activeEditor = vscode.window.activeTextEditor;
     
     if (!activeEditor) {
@@ -56,7 +56,6 @@ class VsFiglet {
         vscode.window.showQuickPick(fonts).then((font) => {
           if (font !== undefined) {
             vscode.workspace.getConfiguration("vsfiglet").update("font", font);
-            vscode.window.showInformationMessage(`Font changed to ${font}`);
           }
         });
       }

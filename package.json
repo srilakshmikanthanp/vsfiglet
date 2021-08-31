@@ -4,7 +4,7 @@
   "displayName": "vsfiglet",
   "description": "Figlet inside vscode!",
   "version": "0.0.1",
-  "logo": "images/logo.png",
+  "icon": "images/logo.png",
   "engines": {
     "vscode": "^1.59.0"
   },
@@ -12,18 +12,19 @@
     "Other"
   ],
   "activationEvents": [
-    "*"
+    "onCommand:vsfiglet.setfont",
+    "onCommand:vsfiglet.convert"
   ],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
       {
         "command": "vsfiglet.setfont",
-        "title": "VsFiglet : Set Font to use in workspace"
+        "title": "VsFiglet: Select Font in Workspace"
       },
       {
         "command": "vsfiglet.convert",
-        "title": "VsFiglet : Convert to FIGure"
+        "title": "VsFiglet: Convert to FIGure"
       }
     ],
     "menus": {
