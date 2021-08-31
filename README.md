@@ -52,6 +52,7 @@ Install from [marketplace](https://marketplace.visualstudio.com/items?itemName=s
 <!-- USAGE EXAMPLES -->
 ## Usage
 
+![Demo](images/demo.gif)
 
 <!-- CONTRIBUTING -->
 ## Contributing
