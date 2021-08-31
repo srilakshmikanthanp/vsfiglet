@@ -1,7 +1,7 @@
 {
   "name": "vsfiglet",
   "publisher": "srilakshmikanthanp",
-  "displayName": "VsFiglet",
+  "displayName": "Vscode Figlet",
   "description": "Generate ASCII DOC right from your editor !",
   "version": "1.0.1",
   "icon": "images/logo.png",
