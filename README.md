@@ -14,7 +14,6 @@
   </p>
 </p>
 
-
 <!-- TABLE OF CONTENTS -->
 <details open="open">
   <summary><h2 style="display: inline-block">Table of Contents</h2></summary>
