@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://github.com/srilakshmikanthnap/vsfiglet">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="asstes/images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">VsFiglet</h3>
