@@ -3,91 +3,90 @@
 // This software is released under the MIT License.
 // https://opensource.org/licenses/MIT
 
-// load dependencies
+import { window, workspace } from "vscode";
 import * as figlet from "figlet";
-import * as vscode from "vscode";
+
+
+/***********************************
+ * Internal non exported functions *
+ **********************************/
 
 /**
- * Main class for figlet
+ * Get the select font from the editor
+ * 
+ * @returns the selected text
  */
-class VsFiglet {
-  /**
-   * get the selected text
-   */
-  private static getSelectedText(): string | undefined {
-    var activeEditor = vscode.window.activeTextEditor;
-    
-    if (!activeEditor) {
-      return undefined;
-    }
-
-    var selection = activeEditor.selection;
-
-    if (selection.isEmpty) {
-      return undefined;
-    }
-
-    return activeEditor.document.getText(selection);
+function getSelectedText(): string | undefined {
+  var activeEditor = window.activeTextEditor;
+  
+  if (!activeEditor) {
+    return undefined;
   }
 
-  /**
-   * get options for the figlet
-   */
-  private static getOptions(): figlet.Options {
-    const config = vscode.workspace.getConfiguration("vsfiglet");
-    return {
-      font: config.get("font"),
-      horizontalLayout: config.get("horizontalLayout"),
-      verticalLayout: config.get("verticalLayout"),
-      width: config.get("width"),
-      whitespaceBreak: config.get("whitespaceBreak"),
-    };
+  var selection = activeEditor.selection;
+
+  if (selection.isEmpty) {
+    return undefined;
   }
 
-  /**
-   * change the font of the figlet
-   */
-  public static setFont(): void {
-    figlet.fonts((err, fonts) => {
-      if (err !== null) {
-        vscode.window.showErrorMessage(err.toString());
-        return;
-      } else if (fonts !== undefined) {
-        vscode.window.showQuickPick(fonts).then((font) => {
-          if (font !== undefined) {
-            vscode.workspace.getConfiguration("vsfiglet").update("font", font);
-          }
-        });
-      }
-    });
-  }
+  return activeEditor.document.getText(selection);
+}
 
-  /**
-   * convert text to figlet
-   */
-  public static convert(): void {
-    var text = VsFiglet.getSelectedText();
-    var options = VsFiglet.getOptions();
-    var editor = vscode.window.activeTextEditor;
+/**
+ * Generate the Figlet options
+ * 
+ * @returns Options
+ */
+function getOptions(): figlet.Options {
+  const config = workspace.getConfiguration("vsfiglet");
+  return {
+    horizontalLayout: config.get("horizontalLayout"),
+    verticalLayout: config.get("verticalLayout"),
+    font: config.get("font"),
+    width: config.get("width"),
+    whitespaceBreak: config.get("whitespaceBreak"),
+  };
+}
 
-    if (text === undefined) {
-      vscode.window.showErrorMessage("No text selected");
-      return;
-    }
+/***********************************
+ *        exported functions       *
+ ***********************************/
 
-    if (editor === undefined) {
-      vscode.window.showErrorMessage("No active Editor");
-      return;
-    }
-    
-    var fig = figlet.textSync(text, options);
-    var selection = editor.selection;
+/**
+ * Set the font in the editor for figlet
+ */
+export async function setFont(): Promise<void> {
+  // Figlet fonts select new one
+  const selected = await window.showQuickPick(
+    figlet.fontsSync()
+  );
 
-    editor.edit((editBuilder) => {
-      editBuilder.replace(selection, fig);
-    });
+  // set the font in the config
+  if (selected !== undefined) {
+    workspace.getConfiguration(
+      "vsfiglet"
+    ).update(
+      "font", selected
+    );
   }
 }
 
-// export the class
-export default VsFiglet;
+/**
+ * Convert the text to figlet
+ */
+export async function convert(): Promise<void> {
+  var editor = window.activeTextEditor;
+  var text = getSelectedText();
+  var options = getOptions();
+
+  if (!editor || !text) {
+    return;
+  }
+  
+  var fig = figlet.textSync(text, options);
+  var selection = editor.selection;
+
+  editor.edit((editBuilder) => {
+    editBuilder.replace(selection, fig);
+  });
+}
