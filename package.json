@@ -4,7 +4,7 @@
   "displayName": "Vscode Figlet",
   "description": "Generate ASCII DOC right from your editor !",
   "version": "1.0.2",
-  "icon": "images/logo.png",
+  "icon": "assets/images/logo.png",
   "engines": {
     "vscode": "^1.59.0"
   },
