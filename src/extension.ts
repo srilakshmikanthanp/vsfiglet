@@ -7,13 +7,13 @@ import * as vscode from 'vscode';
 // your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
 	// add dispose to the context
-	context.subscriptions.push(vscode.commands.registerCommand(
-		'vsfiglet.setfont', setFont
-	));
-
-	// add dispose to the context
-	context.subscriptions.push(vscode.commands.registerCommand(
-    'vsfiglet.convert', convert
+  context.subscriptions.push(vscode.commands.registerCommand(
+    'vsfiglet.setfont', setFont
+  ));
+  
+  // add dispose to the context
+  context.subscriptions.push(vscode.commands.registerCommand(
+  'vsfiglet.convert', convert
   ));
 }
 
