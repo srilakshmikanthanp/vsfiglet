@@ -3,7 +3,7 @@
   "publisher": "srilakshmikanthanp",
   "displayName": "Vscode Figlet",
   "description": "Generate ASCII DOC right from your editor !",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "icon": "assets/images/logo.png",
   "engines": {
     "vscode": "^1.59.0"

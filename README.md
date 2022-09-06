@@ -37,21 +37,19 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-This is a simple extension that allows you to use Figlet in your code. Use this to create attractive ascii doc inside your code.
+This is a simple extension that allows you to use Figlet in your code. Use this to create an attractive ASCII doc inside your code.
 
 <!-- GETTING STARTED -->
 ## Getting Started
 
 To install the extension follow these simple steps.
 
-### Installation
-
-Install from [marketplace](https://marketplace.visualstudio.com/items?itemName=srilakshmikanthanp.vsfiglet).
+### InstallationInstall from the [marketplace](https://marketplace.visualstudio.com/items?itemName=srilakshmikanthanp.vsfiglet).
 
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-![Demo](images/demo.gif)
+![Demo](assets/images/demo.gif)
 
 <!-- CONTRIBUTING -->
 ## Contributing
