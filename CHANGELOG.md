@@ -15,3 +15,7 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 ## 1.0.2
 
 - Extension Rename
+
+## 1.0.3
+
+- Improve Code Quality
