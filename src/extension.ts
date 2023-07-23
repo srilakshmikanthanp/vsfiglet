@@ -1,6 +1,6 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
-import {setFont, convert} from './vsfiglet';
+import { setFont, convert } from './vsfiglet';
 import * as vscode from 'vscode';
 
 // this method is called when your extension is activated
@@ -10,12 +10,12 @@ export function activate(context: vscode.ExtensionContext) {
   context.subscriptions.push(vscode.commands.registerCommand(
     'vsfiglet.setfont', setFont
   ));
-  
+
   // add dispose to the context
   context.subscriptions.push(vscode.commands.registerCommand(
-  'vsfiglet.convert', convert
+    'vsfiglet.convert', convert
   ));
 }
 
 // this method is called when your extension is deactivated
-export function deactivate() {}
+export function deactivate() { }
