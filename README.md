@@ -44,7 +44,9 @@ This is a simple extension that allows you to use Figlet in your code. Use this 
 
 To install the extension follow these simple steps.
 
-### InstallationInstall from the [marketplace](https://marketplace.visualstudio.com/items?itemName=srilakshmikanthanp.vsfiglet).
+### Installation
+
+Install from the [marketplace](https://marketplace.visualstudio.com/items?itemName=srilakshmikanthanp.vsfiglet).
 
 <!-- USAGE EXAMPLES -->
 ## Usage
